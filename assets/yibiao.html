@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>ECharts</title>
+    <!-- 引入 echarts.js -->
+    <script src="echarts.min.js"></script>
+</head>
+<body bgcolor="#181C25">
+
+<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+<div id="main" style="width: 150px;height:150px;"></div>
+<script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+<!-- color: [[yiduan,'#E64420'],[erduan,'#62DE88'],[sanduan,'#E64420'],[siduan,'#62DE88'],[1,'#E64420']],-->
+    function loadEcharts(echartJson,range_max,yiduan,erduan,sanduan,siduan){
+    var myChart = echarts.init(document.getElementById('main'));
+            option = {
+    series: {
+        type: 'gauge',
+        max: range_max,
+        axisLine: {//仪表盘轴线
+            lineStyle: {
+                 color: [[yiduan,'#E64420'],[erduan,'#F19109'],[sanduan,'#62DE88'],[siduan,'#F19109'],[1,'#E64420']],
+                width: 5
+            }
+        },
+        axisTick: {
+            show: false
+        },
+        splitLine: {//分割线
+            length: 1,//分割线线长
+            lineStyle: {
+                width: 1,
+                color: '#E1E6EF'
+            }
+        },pointer: { //指针粗细
+						width: 4,
+
+					},
+        axisLabel: {// 坐标轴文本标签
+            distance: 2,
+
+            fontSize: 2
+        },
+        anchor: {
+            show: true,
+            showAbove: true,
+            size: 2,
+            itemStyle: {
+                borderWidth: 10
+            }
+        },
+        title: {
+            show: false
+        },
+        detail: {//导入数值字体大小
+            valueAnimation: true,
+            fontSize: 15,
+            offsetCenter: [0, '100%']
+        },
+        data: [{
+            value: echartJson,
+            itemStyle:{color:'#31F3FB'}
+        }]
+    }
+};
+ myChart.setOption(option);
+
+
+
+}
+    </script>
+</body>
+</html>
