@@ -8,7 +8,8 @@ class TabNavigator extends StatefulWidget{
   @override
   _TabNavigatorState createState()=>_TabNavigatorState();
 }
-class _TabNavigatorState extends State<TabNavigator>{
+class _TabNavigatorState extends State<TabNavigator> {
+
   final _defaultColor=Color.fromRGBO(140, 184, 207, 1);
   final _activeColor=Color.fromRGBO(46, 228, 149, 1);
   int _mycurrentIndex = 0;
@@ -32,7 +33,7 @@ class _TabNavigatorState extends State<TabNavigator>{
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Color.fromRGBO(5, 36, 67, 0.91),
+        backgroundColor: Color.fromRGBO(1, 20, 43, 1),
         currentIndex: _mycurrentIndex,
         selectedItemColor:_activeColor ,
         unselectedItemColor: _defaultColor,

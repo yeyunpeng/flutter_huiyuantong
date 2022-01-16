@@ -46,22 +46,23 @@ class _AlarmHistoryState extends State<AlarmHistory>{
     _scrollController.dispose();
   }
   Future<void> _sitesRealTimedPost() async{
-    final prefs = await SharedPreferences.getInstance();
-    final busiParkId = prefs.getString('busiParkId')?? "0";
-    final authorization = prefs.getString('authorization') ?? "0";
-    var url = Uri.parse('http://39.105.58.216:13001/api/appAirData/appQryAirAlarm');
-    var params = Map<String, dynamic>();
-    params["pageNum"] = index;
-    params["pageSize"] = 10;
-    params["data"] = {"sn":widget.sn,"time":timeData};
-    var result=await http.post(url,
-      headers: {'busiParkId':busiParkId,'authorization':authorization,"Content-Type":"application/json"},
-      body: jsonEncode(params), );
-    Utf8Decoder utf8decoder = const Utf8Decoder();
-    Map<String, dynamic> data = new Map<String, dynamic>.from(json.decode(utf8decoder.convert(result.bodyBytes)));
-   //print(widget.sn);
-    // print('11111'+json.decode(result.body));
-    alarmhistorymodel=AlarmHistoryModel.fromJson(json.decode(utf8decoder.convert(result.bodyBytes)) ) ;
+   //  final prefs = await SharedPreferences.getInstance();
+   //  final busiParkId = prefs.getString('busiParkId')?? "0";
+   //  final authorization = prefs.getString('authorization') ?? "0";
+   //  var url = Uri.parse('http://39.105.58.216:13001/api/appAirData/appQryAirAlarm');
+   //  var params = Map<String, dynamic>();
+   //  params["pageNum"] = index;
+   //  params["pageSize"] = 10;
+   //  params["data"] = {"sn":widget.sn,"time":timeData};
+   //  var result=await http.post(url,
+   //    headers: {'busiParkId':busiParkId,'authorization':authorization,"Content-Type":"application/json"},
+   //    body: jsonEncode(params), );
+   //  Utf8Decoder utf8decoder = const Utf8Decoder();
+   //  Map<String, dynamic> data = new Map<String, dynamic>.from(json.decode(utf8decoder.convert(result.bodyBytes)));
+   // //print(widget.sn);
+   //  // print('11111'+json.decode(result.body));
+    String text='{"msg":"success","code":200,"data":{"totalCount":107965,"pageSize":10,"totalPage":10797,"currPage":1,"list":[{"id":null,"deviceId":null,"deviceName":"恶臭04","indexId":null,"indexName":"H₂S","alarmType":2,"alarmGrade":4,"limitValue":null,"alarmValue":null,"alarmContent":"H₂S的监测值[101.85]超过标准值(50.0)","createTime":"2021-12-28 17:20:04","busiParkId":null,"dataTime":null,"alarmCount":null,"alarmMultiple":0.0,"data":null},{"id":null,"deviceId":null,"deviceName":"恶臭04","indexId":null,"indexName":"OU","alarmType":2,"alarmGrade":4,"limitValue":null,"alarmValue":null,"alarmContent":"OU的监测值[78.05]超过标准值(50.0)","createTime":"2021-12-28 17:20:04","busiParkId":null,"dataTime":null,"alarmCount":null,"alarmMultiple":0.0,"data":null},{"id":null,"deviceId":null,"deviceName":"恶臭04","indexId":null,"indexName":"C₈H₈","alarmType":2,"alarmGrade":4,"limitValue":null,"alarmValue":null,"alarmContent":"C₈H₈的监测值[56.08]超过标准值(50.0)","createTime":"2021-12-28 17:20:04","busiParkId":null,"dataTime":null,"alarmCount":null,"alarmMultiple":0.0,"data":null},{"id":null,"deviceId":null,"deviceName":"恶臭04","indexId":null,"indexName":"CS₂","alarmType":2,"alarmGrade":4,"limitValue":null,"alarmValue":null,"alarmContent":"CS₂的监测值[58.52]超过标准值(50.0)","createTime":"2021-12-28 17:20:04","busiParkId":null,"dataTime":null,"alarmCount":null,"alarmMultiple":0.0,"data":null},{"id":null,"deviceId":null,"deviceName":"恶臭04","indexId":null,"indexName":"C₂H₆S₂","alarmType":2,"alarmGrade":4,"limitValue":null,"alarmValue":null,"alarmContent":"C₂H₆S₂的监测值[71.41]超过标准值(50.0)","createTime":"2021-12-28 17:20:04","busiParkId":null,"dataTime":null,"alarmCount":null,"alarmMultiple":0.0,"data":null},{"id":null,"deviceId":null,"deviceName":"恶臭04","indexId":null,"indexName":"C₂H₆S","alarmType":2,"alarmGrade":4,"limitValue":null,"alarmValue":null,"alarmContent":"C₂H₆S的监测值[119.43]超过标准值(50.0)","createTime":"2021-12-28 17:20:04","busiParkId":null,"dataTime":null,"alarmCount":null,"alarmMultiple":0.0,"data":null},{"id":null,"deviceId":null,"deviceName":"恶臭04","indexId":null,"indexName":"CH₄S","alarmType":2,"alarmGrade":4,"limitValue":null,"alarmValue":null,"alarmContent":"CH₄S的监测值[74.08]超过标准值(50.0)","createTime":"2021-12-28 17:20:04","busiParkId":null,"dataTime":null,"alarmCount":null,"alarmMultiple":0.0,"data":null},{"id":null,"deviceId":null,"deviceName":"恶臭04","indexId":null,"indexName":"C₃H₉N","alarmType":2,"alarmGrade":4,"limitValue":null,"alarmValue":null,"alarmContent":"C₃H₉N的监测值[99.67]超过标准值(50.0)","createTime":"2021-12-28 17:20:04","busiParkId":null,"dataTime":null,"alarmCount":null,"alarmMultiple":0.0,"data":null},{"id":null,"deviceId":null,"deviceName":"恶臭04","indexId":null,"indexName":"NH₃","alarmType":2,"alarmGrade":4,"limitValue":null,"alarmValue":null,"alarmContent":"NH₃的监测值[84.35]超过标准值(50.0)","createTime":"2021-12-28 17:20:04","busiParkId":null,"dataTime":null,"alarmCount":null,"alarmMultiple":0.0,"data":null},{"id":null,"deviceId":null,"deviceName":"恶臭04","indexId":null,"indexName":"H₂S","alarmType":2,"alarmGrade":4,"limitValue":null,"alarmValue":null,"alarmContent":"H₂S的监测值[105.38]超过标准值(50.0)","createTime":"2021-12-28 16:20:01","busiParkId":null,"dataTime":null,"alarmCount":null,"alarmMultiple":0.0,"data":null}]}}';
+    alarmhistorymodel=AlarmHistoryModel.fromJson(json.decode(text) ) ;
     print(alarmhistorymodel.data!.list);
     setState(() {
       AlarmDataList.addAll(alarmhistorymodel.data!.list);

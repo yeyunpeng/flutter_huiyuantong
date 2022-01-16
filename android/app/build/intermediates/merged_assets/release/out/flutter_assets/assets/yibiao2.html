@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>ECharts</title>
+    <!-- 引入 echarts.js -->
+    <script src="echarts.min.js"></script>
+</head>
+<body bgcolor="rgba(185, 233, 255, 0.05)">
+
+<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+<div id="main" style="width: 90pt;height:90pt;"></div>
+<script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+
+    var myChart = echarts.init(document.getElementById('main'));
+   let max = 100;
+let value = 0;
+
+let rate = Math.round((value * 100) / max);
+option = {
+    backgroundColor: '#333',
+
+    polar: {
+        center: ['50%', '50%'],
+        radius: ['60%', '75%'],
+    },
+    angleAxis: {
+        max: 100,
+        show: false,
+    },
+    radiusAxis: {
+        type: 'category',
+        show: true,
+        axisLabel: {
+            show: false,
+        },
+        axisLine: {
+            show: false,
+        },
+        axisTick: {
+            show: false,
+        },
+    },
+    series: [
+        {
+            name: '',
+            type: 'bar',
+            roundCap: true,
+            showBackground: true,
+            backgroundStyle: {
+                color: 'rgba(239, 67, 53, 0.1)',
+            },
+            data: [value],
+            coordinateSystem: 'polar',
+            itemStyle: {
+                normal: {
+                    color:'rgba(239, 67, 53, 1)',
+                },
+            },
+        },
+        {
+            name: '',
+            type: 'gauge',
+            radius: '54%',
+            axisLine: {
+                show: false,
+            },
+            axisLabel: {
+                show: false,
+            },
+            axisTick: {
+                show: false,
+            },
+            splitLine: {
+                show: false,
+            },
+            itemStyle: {
+                show: false,
+            },
+            detail: {
+                show: false,
+            },
+            data: [],
+            pointer: {
+                show: false,
+            },
+        },
+    ],
+};
+
+
+ myChart.setOption(option);
+
+
+
+
+    </script>
+</body>
+</html>

@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
 class HttpUtil {
-  static String url = '';
+  static String url = 'http://39.105.58.216:13001';
 
 }

@@ -1,28 +1,42 @@
 import 'package:flutter/material.dart';
-class PopRoute extends PopupRoute {
-  final Duration _duration = const Duration(milliseconds: 300);
-  late Widget child;
-  PopRoute( this.child);
-  @override
-  // TODO: implement barrierColor
-  Color? get barrierColor => null;
 
-  @override
-  // TODO: implement barrierDismissible
-  bool get barrierDismissible => true;
+import 'easy_popup_child.dart';
+import 'easy_popup_route.dart';
 
-  @override
-  // TODO: implement barrierLabel
-  String? get barrierLabel => null;
-
-  @override
-  Widget buildPage(BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation) {
-    // TODO: implement buildPage
-    return child;
+class EasyPopup {
+  ///Dismiss the popup related to the specific BuildContext
+  static pop(BuildContext context) {
+    EasyPopupRoute.pop(context);
   }
 
-  @override
-  // TODO: implement transitionDuration
-  Duration get transitionDuration => _duration;
-  
+  ///Show popup
+  static show(
+      BuildContext context,
+      EasyPopupChild child, {
+        required Offset offsetLT,
+         Offset ? offsetRB,
+        bool cancelable = true,
+        bool outsideTouchCancelable = true,
+        bool darkEnable = true,
+        Duration duration = const Duration(milliseconds: 300),
+         List<RRect> ? highlights,
+      }) {
+    Navigator.of(context).push(
+      EasyPopupRoute(
+        child: child,
+        offsetLT: offsetLT,
+        offsetRB: offsetRB,
+        cancelable: cancelable,
+        outsideTouchCancelable: outsideTouchCancelable,
+        darkEnable: darkEnable,
+        duration: duration,
+        highlights: highlights,
+      ),
+    ).then((value) => null);
+  }
+
+  ///Set popup highlight positions
+  static setHighlights(BuildContext context, List<RRect> highlights) {
+    EasyPopupRoute.setHighlights(context, highlights);
+  }
 }
